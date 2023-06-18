@@ -25,6 +25,7 @@
         </v-col>
         <v-col>
           <v-card class="wrap-right ml-6 pa-4 h-100">
+            <v-row no-gutters class="mb-4"><h3>Price table</h3></v-row>
             <paper-table
                 :key="renderKey"
                 :prices="prices"
@@ -42,7 +43,7 @@
       <v-card class="w-100 pa-6">
         <v-row no-gutters justify="end">
           <div>
-            <span class="mr-4">Order price: {{currencyFormatPrice}}</span>
+            <span class="mr-4">Order price: ¥{{currencyFormatPrice}}</span>
             <v-btn>Cart</v-btn>
           </div>
         </v-row>
@@ -71,7 +72,7 @@ export default defineComponent({
   },
   computed: {
     totalPrice () {
-      return this.selectedPrices.reduce((sum, cur) => sum + (cur.price || 0) * (cur.quantity || 0), 0)
+      return this.selectedPrices.reduce((sum, cur) => sum + (cur.price || 0), 0)
     },
     currencyFormatPrice () {
       return currencyFormat(this.totalPrice)
