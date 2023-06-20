@@ -2,7 +2,11 @@
   <v-tooltip text="Tooltip">
     <template v-slot:activator="{ props }">
       <div
-          :class="{'paper-cell': true, 'selected': isSelected || highlightCells.some(cell => cell === populateWith)}"
+          :class="{
+            'paper-cell': true,
+            'selected': isSelected,
+            'light-hover': highlightCells.some(cell => cell === populateWith)
+          }"
           :style="{width: width}"
           v-bind="props"
           @click="onCellClick"
@@ -60,6 +64,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.paper-cell.light-hover {
+  background-color: #F1F0F0FF;
 }
 
 .paper-cell.selected {
