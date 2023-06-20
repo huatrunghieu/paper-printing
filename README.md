@@ -4,3 +4,7 @@ Start project
 
 Run unit test:
 1. yarn test:unit
+
+
+Notes:
+ - Complete time: 3h
